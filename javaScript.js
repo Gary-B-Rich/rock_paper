@@ -2,6 +2,27 @@
 let comp;
 let computerSelection;
 let playerSelection;
+let choice;
+let correct = false;
+
+
+// get player's choice
+function getPlayerChoice() {
+    while(correct == false) {
+        // get input from player
+        choice = prompt("Rock, Paper, or Scissors?");
+        // plan for case sensitivity
+        playerSelection = choice.toLowerCase();
+        if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+            correct = true;
+        }
+        else {
+            alert("Not a valid response");
+        }
+    }
+    console.log(playerSelection);
+    return playerSelection;
+}
 
 
 function getComputerChoice() {
@@ -30,4 +51,7 @@ function playRound(playerSelection, computerSelection) {
     // return winner
 }
 
+
+//  Main body
+getPlayerChoice();
 getComputerChoice();
