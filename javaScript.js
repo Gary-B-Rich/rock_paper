@@ -5,12 +5,19 @@ let choice;
 let lower;
 let correct = false;
 let roundWinner = "CLOWN";
+let winner = "CLOWN";
+let comp = 0;
+let player = 0;
 
 //  Main body
-roundWinner = playRound();
-console.log(" Round: " + roundWinner);
-
-
+alert("Rock Paper Scissors best of 5");
+winner = game();
+if(winner == "Comp") {
+    alert("Sorry, you lose.");
+}
+else {
+    alert("Congratulations, you win!");
+}
 
 
 // DEFINE ALL FUNCTIONS
@@ -61,11 +68,11 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     // get player's choice and console.log
     playerSelection = getPlayerChoice();
-    console.log("Player: " + playerSelection);
+    //console.log("Player: " + playerSelection);
 
     // get computers choice and console.log
     computerSelection = getComputerChoice();
-    console.log("Comptr: " + computerSelection);
+    //console.log("Comptr: " + computerSelection);
 
     // compare parameters rock
     if (playerSelection == "rock") {
@@ -108,16 +115,28 @@ function playRound(playerSelection, computerSelection) {
 
 // play five round game
 function game() {
-    // loop 5 times
-
-    // play one round: playRound()
-
-    // if tie redo round
-
-    // assign results to a variable
-
-    // end loop
-
+    //set loop variable
+    i = 1;
+    while(i < 6) {
+        // play one round 
+        roundWinner = playRound();
+        console.log(`Round ${i} winner: ` + roundWinner);
+        if(roundWinner == "Player") {
+            player++;
+            i++;
+        }
+        else if(roundWinner == "Comp") {
+            comp++;
+            i++;
+        }
+    // if tie loop doesn't advance
+    }
     // return winner decided by variable
+    if(player > comp) {
+        return "Player";
+    }
+    else if(player < comp) {
+        return "Comp";
+    }
 
 }
