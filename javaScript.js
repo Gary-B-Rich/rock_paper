@@ -43,7 +43,7 @@ function getPlayerChoice() {
 function getComputerChoice() {
     //generate random number between 1 and 3
     randomNumber = Math.floor(Math.random() * 3) + 1;
-    
+
     //assign number to choice
     if (randomNumber == 1) {
         return "Rock";
@@ -88,15 +88,21 @@ function playRound(playerSelection, computerSelection) {
             return "Comp";
         }
         else if(computerSelection == "Rock") {
-            roundWinner = "Player";
+            return "Player";
         }
     }
     // compare parameters scissors
     else if(playerSelection == "scissors") {
-        //yet even more stuff
+        if(computerSelection == "Paper") {
+            return "Player";
+        }
+        else if(computerSelection == "Scissors") {
+            return "Tie";
+        }
+        else if(computerSelection == "Rock") {
+            return "Comp";
+        }
     }
-    
-    return roundWinner;
 }
 
 
