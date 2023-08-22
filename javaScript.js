@@ -4,6 +4,7 @@ let computerSelection;
 let playerSelection;
 let choice;
 let correct = false;
+let roundWinner;
 
 //  Main body
 getPlayerChoice();
@@ -57,13 +58,24 @@ function getComputerChoice() {
 
 // play one round
 function playRound(playerSelection, computerSelection) {
-    // get player's choice getPlayerChoice()
+    // get player's choice 
+    getPlayerChoice();
     
-    // get computer's choice getComputerChoice()
+    // get computer's choice 
+    getComputerChoice();
     
     // compare parameters
+    if (playerSelection == "rock") {
+        //stuff
+    }
+    else if(playerSelection == "paper") {
+        //more stuff
+    }
+    else if(playerSelection == "scissors") {
+        //yet even more stuff
+    }
 
-    // return winner
+    // return roundWinner
 }
 
 
@@ -78,4 +90,6 @@ function game() {
     // end loop
 
     // return winner decided by variable
+    console.log(roundWinner);
+    return roundWinner;
 }
