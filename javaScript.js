@@ -3,12 +3,13 @@ let computerSelection;
 let playerSelection;
 let choice;
 let correct = false;
-let roundWinner;
+let roundWinner = "CLOWN";
 
 //  Main body
-getPlayerChoice();
-getComputerChoice();
-
+playRound();
+console.log("Player: " + playerSelection);
+console.log("Comptr: " + computerSelection);
+console.log(" Round: " + roundWinner);
 
 
 
@@ -31,7 +32,6 @@ function getPlayerChoice() {
             alert("Not a valid response");
         }
     }
-    console.log(playerSelection);
     return playerSelection;
 }
 
@@ -52,8 +52,8 @@ function getComputerChoice() {
         computerSelection = "Scissors";
     }
 
-    //return choice in comp variable
-    console.log(computerSelection);
+    //return choice in computerSelection variable
+    //console.log("Comptr: " + computerSelection);
     return computerSelection;
 }
 
@@ -66,18 +66,35 @@ function playRound(playerSelection, computerSelection) {
     // get computer's choice 
     getComputerChoice();
     
-    // compare parameters
+    // compare parameters rock
     if (playerSelection == "rock") {
-        //stuff
+        if(computerSelection == "Rock") {
+            roundWinner = "Tie";
+        }
+        else if(computerSelection == "Paper") {
+            roundWinner = "Comp";
+        }
+        else if(computerSelection == "Scissors") {
+            roundWinner = "Player";
+        }
     }
+    // compare parameters paper
     else if(playerSelection == "paper") {
-        //more stuff
+        if(computerSelection == "Paper") {
+            roundWinner = "Tie";
+        }
+        else if(computerSelection == "Scissors") {
+            roundWinner = "Comp";
+        }
+        else if(computerSelection == "Rock") {
+            roundWinner = "Player";
+        }
     }
+    // compare parameters scissors
     else if(playerSelection == "scissors") {
         //yet even more stuff
     }
-
-    // return roundWinner
+    return roundWinner;
 }
 
 
@@ -94,6 +111,5 @@ function game() {
     // end loop
 
     // return winner decided by variable
-    console.log(roundWinner);
-    return roundWinner;
+
 }
