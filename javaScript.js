@@ -1,5 +1,4 @@
 // declare variables
-let comp;
 let computerSelection;
 let playerSelection;
 let choice;
@@ -18,11 +17,13 @@ getComputerChoice();
 
 // get player's choice
 function getPlayerChoice() {
+    // continue loop until player input is correct
     while(correct == false) {
         // get input from player
         choice = prompt("Rock, Paper, or Scissors?");
         // plan for case sensitivity
         playerSelection = choice.toLowerCase();
+        // check for usage
         if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
             correct = true;
         }
@@ -42,17 +43,18 @@ function getComputerChoice() {
 
     //assign number to choice
     if (randomNumber == 1) {
-        comp = "Rock";
+        computerSelection = "Rock";
     }
     else if (randomNumber == 2) {
-        comp = "Paper";
+        computerSelection = "Paper";
     }
     else if (randomNumber == 3) {
-        comp = "Scissors";
+        computerSelection = "Scissors";
     }
 
     //return choice in comp variable
-    return comp;
+    console.log(computerSelection);
+    return computerSelection;
 }
 
 
@@ -83,7 +85,9 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     // loop 5 times
 
-    // play one round playRound()
+    // play one round: playRound()
+
+    // if tie redo round
 
     // assign results to a variable
 
