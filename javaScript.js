@@ -5,6 +5,15 @@ let playerSelection;
 let choice;
 let correct = false;
 
+//  Main body
+getPlayerChoice();
+getComputerChoice();
+
+
+
+
+
+// DEFINE ALL FUNCTIONS
 
 // get player's choice
 function getPlayerChoice() {
@@ -25,6 +34,7 @@ function getPlayerChoice() {
 }
 
 
+// get computer's choice
 function getComputerChoice() {
     //generate random number between 1 and 3
     randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -45,13 +55,27 @@ function getComputerChoice() {
 }
 
 
+// play one round
 function playRound(playerSelection, computerSelection) {
+    // get player's choice getPlayerChoice()
+    
+    // get computer's choice getComputerChoice()
+    
     // compare parameters
 
     // return winner
 }
 
 
-//  Main body
-getPlayerChoice();
-getComputerChoice();
+// play five round game
+function game() {
+    // loop 5 times
+
+    // play one round playRound()
+
+    // assign results to a variable
+
+    // end loop
+
+    // return winner decided by variable
+}
