@@ -9,7 +9,7 @@ let winner = "CLOWN";
 let comp = 0;
 let player = 0;
 
-//  Main body
+//  Main body *************************
 alert("Rock Paper Scissors best of 5");
 winner = game();
 if(winner == "Comp") {
@@ -18,7 +18,7 @@ if(winner == "Comp") {
 else {
     alert("Congratulations, you win!");
 }
-
+//*************************************
 
 // DEFINE ALL FUNCTIONS
 
