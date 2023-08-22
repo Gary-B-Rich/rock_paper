@@ -2,13 +2,12 @@
 let computerSelection;
 let playerSelection;
 let choice;
+let lower;
 let correct = false;
 let roundWinner = "CLOWN";
 
 //  Main body
-playRound();
-console.log("Player: " + playerSelection);
-console.log("Comptr: " + computerSelection);
+roundWinner = playRound();
 console.log(" Round: " + roundWinner);
 
 
@@ -19,20 +18,21 @@ console.log(" Round: " + roundWinner);
 // get player's choice
 function getPlayerChoice() {
     // continue loop until player input is correct
+    correct = false;
     while(correct == false) {
         // get input from player
         choice = prompt("Rock, Paper, or Scissors?");
         // plan for case sensitivity
-        playerSelection = choice.toLowerCase();
+        lower = choice.toLowerCase();
         // check for usage
-        if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+        if (lower == "rock" || lower == "paper" || lower == "scissors") {
             correct = true;
         }
         else {
             alert("Not a valid response");
         }
     }
-    return playerSelection;
+    return lower;
 }
 
 
@@ -43,39 +43,40 @@ function getComputerChoice() {
 
     //assign number to choice
     if (randomNumber == 1) {
-        computerSelection = "Rock";
+        return "Rock";
     }
     else if (randomNumber == 2) {
-        computerSelection = "Paper";
+        return "Paper";
     }
     else if (randomNumber == 3) {
-        computerSelection = "Scissors";
+        return "Scissors";
     }
 
     //return choice in computerSelection variable
-    //console.log("Comptr: " + computerSelection);
     return computerSelection;
 }
 
 
 // play one round
 function playRound(playerSelection, computerSelection) {
-    // get player's choice 
-    getPlayerChoice();
-    
-    // get computer's choice 
-    getComputerChoice();
-    
+    // get computers choice and console.log
+    computerSelection = getComputerChoice();
+    console.log("Comptr: " + computerSelection);
+
+    // get player's choice and console.log
+    playerSelection = getPlayerChoice();
+    console.log("Player: " + playerSelection);
+
     // compare parameters rock
     if (playerSelection == "rock") {
         if(computerSelection == "Rock") {
-            roundWinner = "Tie";
+            return "Tie";
         }
         else if(computerSelection == "Paper") {
-            roundWinner = "Comp";
+            return "Comp";
         }
         else if(computerSelection == "Scissors") {
-            roundWinner = "Player";
+            return "Player";
         }
     }
     // compare parameters paper
@@ -94,6 +95,7 @@ function playRound(playerSelection, computerSelection) {
     else if(playerSelection == "scissors") {
         //yet even more stuff
     }
+    
     return roundWinner;
 }
 
