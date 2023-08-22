@@ -22,6 +22,9 @@ function getPlayerChoice() {
     while(correct == false) {
         // get input from player
         choice = prompt("Rock, Paper, or Scissors?");
+        if(choice == null) {
+            choice = "";
+        }
         // plan for case sensitivity
         lower = choice.toLowerCase();
         // check for usage
@@ -40,7 +43,7 @@ function getPlayerChoice() {
 function getComputerChoice() {
     //generate random number between 1 and 3
     randomNumber = Math.floor(Math.random() * 3) + 1;
-
+    
     //assign number to choice
     if (randomNumber == 1) {
         return "Rock";
@@ -51,21 +54,18 @@ function getComputerChoice() {
     else if (randomNumber == 3) {
         return "Scissors";
     }
-
-    //return choice in computerSelection variable
-    return computerSelection;
 }
 
 
 // play one round
 function playRound(playerSelection, computerSelection) {
-    // get computers choice and console.log
-    computerSelection = getComputerChoice();
-    console.log("Comptr: " + computerSelection);
-
     // get player's choice and console.log
     playerSelection = getPlayerChoice();
     console.log("Player: " + playerSelection);
+
+    // get computers choice and console.log
+    computerSelection = getComputerChoice();
+    console.log("Comptr: " + computerSelection);
 
     // compare parameters rock
     if (playerSelection == "rock") {
@@ -82,10 +82,10 @@ function playRound(playerSelection, computerSelection) {
     // compare parameters paper
     else if(playerSelection == "paper") {
         if(computerSelection == "Paper") {
-            roundWinner = "Tie";
+            return "Tie";
         }
         else if(computerSelection == "Scissors") {
-            roundWinner = "Comp";
+            return "Comp";
         }
         else if(computerSelection == "Rock") {
             roundWinner = "Player";
