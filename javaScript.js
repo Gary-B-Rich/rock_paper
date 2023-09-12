@@ -1,3 +1,4 @@
+
 // declare variables
 let computerSelection;
 let playerSelection;
@@ -10,13 +11,17 @@ let comp = 0;
 let player = 0;
 
 //  Main body *************************
-alert("Rock Paper Scissors best of 5");
-winner = game();
+//alert("The buttons should be loaded");
+
+//winner = game();
+console.log(`Winner: ${winner}`);
+
 if(winner == "Comp") {
     alert("Sorry, you lose.");
 }
 else {
-    alert("Congratulations, you win!");
+    //alert("Congratulations, you win!");
+    console.log("You win");
 }
 //*************************************
 
@@ -140,3 +145,5 @@ function game() {
     }
 
 }
+
+
