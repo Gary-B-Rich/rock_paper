@@ -2,12 +2,8 @@
 // declare variables
 let computerSelection;
 let playerSelection;
-let choice;
-let buttonChoice;
-let lower;
-let correct = false;
-let roundWinner = "CLOWN";
-let winner = "CLOWN";
+let roundWinner = "";
+let winner = "";
 let comp = 0;
 let player = 0;
 
