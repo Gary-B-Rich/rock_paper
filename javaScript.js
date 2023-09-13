@@ -126,8 +126,10 @@ function score() {
     
     // if either score = 5 
         // display winner in the dom
-        // dislay play again button
+        // dislay play again button instead of choice buttons
             //button resets scores to zero
+            //button changes reset button back to choice buttons
+            //button removes winner display from dom
     // 
 }
 
