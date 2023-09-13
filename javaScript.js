@@ -3,6 +3,7 @@
 let computerSelection;
 let playerSelection;
 let choice;
+let buttonChoice;
 let lower;
 let correct = false;
 let roundWinner = "CLOWN";
@@ -10,45 +11,34 @@ let winner = "CLOWN";
 let comp = 0;
 let player = 0;
 
-//  Main body *************************
-//alert("The buttons should be loaded");
-
-//winner = game();
-console.log(`Winner: ${winner}`);
-
-if(winner == "Comp") {
-    alert("Sorry, you lose.");
-}
-else {
-    //alert("Congratulations, you win!");
-    console.log("You win");
-}
-//*************************************
-
 // DEFINE ALL FUNCTIONS
 
-// get player's choice
-function getPlayerChoice() {
-    // continue loop until player input is correct
-    correct = false;
-    while(correct == false) {
-        // get input from player
-        choice = prompt("Rock, Paper, or Scissors?");
-        if(choice == null) {
-            choice = "";
-        }
-        // plan for case sensitivity
-        lower = choice.toLowerCase();
-        // check for usage
-        if (lower == "rock" || lower == "paper" || lower == "scissors") {
-            correct = true;
-        }
-        else {
-            alert("Not a valid response");
-        }
+// get player's choice from buttons
+let rock = document.getElementById('rock');
+rock.addEventListener("click", rockClicked);
+
+let paper = document.getElementById('paper');
+paper.addEventListener("click", paperClicked);
+
+let scissors = document.getElementById('scissors');
+scissors.addEventListener("click", scissorsClicked);
+
+    function rockClicked() {
+        //console.log("Rock was clicked");
+        playerSelection = "rock";
+        playRound(playerSelection, computerSelection);
     }
-    return lower;
-}
+    function paperClicked() {
+        //console.log("Paper was clicked");
+        playerSelection = "paper";
+        playRound(playerSelection, computerSelection);
+    }
+    function scissorsClicked() {
+        //console.log("Scissors was clicked");
+        playerSelection = "scissors";
+        playRound(playerSelection, computerSelection);
+    }
+
 
 
 // get computer's choice
@@ -72,46 +62,55 @@ function getComputerChoice() {
 // play one round
 function playRound(playerSelection, computerSelection) {
     // get player's choice and console.log
-    playerSelection = getPlayerChoice();
-    //console.log("Player: " + playerSelection);
+    //playerSelection = getPlayerChoice();
+    console.log("Player: " + playerSelection);
 
     // get computers choice and console.log
     computerSelection = getComputerChoice();
-    //console.log("Comptr: " + computerSelection);
+    console.log("Comptr: " + computerSelection);
 
     // compare parameters rock
     if (playerSelection == "rock") {
         if(computerSelection == "Rock") {
+            console.log("Winner: Tie");
             return "Tie";
         }
         else if(computerSelection == "Paper") {
+            console.log("Winner: Comp");
             return "Comp";
         }
         else if(computerSelection == "Scissors") {
+            console.log("Winner: Player");
             return "Player";
         }
     }
     // compare parameters paper
     else if(playerSelection == "paper") {
         if(computerSelection == "Paper") {
+            console.log("Winner: Tie");
             return "Tie";
         }
         else if(computerSelection == "Scissors") {
+            console.log("Winner: Comp");
             return "Comp";
         }
         else if(computerSelection == "Rock") {
+            console.log("Winner: Player");
             return "Player";
         }
     }
     // compare parameters scissors
     else if(playerSelection == "scissors") {
         if(computerSelection == "Paper") {
+            console.log("Winner: Player");
             return "Player";
         }
         else if(computerSelection == "Scissors") {
+            console.log("Winner: Tie");
             return "Tie";
         }
         else if(computerSelection == "Rock") {
+            console.log("Winner: Comp");
             return "Comp";
         }
     }
