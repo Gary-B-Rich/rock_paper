@@ -7,9 +7,8 @@ let winner = "";
 let comp = 0;
 let player = 0;
 
-// DEFINE ALL FUNCTIONS
 
-// get player's choice from buttons
+// get player's choice from button clicks and then trigger functions
 let rock = document.getElementById('rock');
 rock.addEventListener("click", rockClicked);
 
@@ -19,25 +18,30 @@ paper.addEventListener("click", paperClicked);
 let scissors = document.getElementById('scissors');
 scissors.addEventListener("click", scissorsClicked);
 
-    function rockClicked() {
-        //console.log("Rock was clicked");
-        playerSelection = "rock";
-        playRound(playerSelection, computerSelection);
-    }
-    function paperClicked() {
-        //console.log("Paper was clicked");
-        playerSelection = "paper";
-        playRound(playerSelection, computerSelection);
-    }
-    function scissorsClicked() {
-        //console.log("Scissors was clicked");
-        playerSelection = "scissors";
-        playRound(playerSelection, computerSelection);
+
+//  DEFINE ALL FUNCTIONS
+
+function rockClicked() {
+    //console.log("Rock was clicked");
+    playerSelection = "rock";
+    playRound(playerSelection, computerSelection);
+    score();
+}
+    
+function paperClicked() {
+    //console.log("Paper was clicked");
+    playerSelection = "paper";
+    playRound(playerSelection, computerSelection);
+    score();
+}
+    
+function scissorsClicked() {
+    //console.log("Scissors was clicked");
+    playerSelection = "scissors";
+    playRound(playerSelection, computerSelection);
+    score();
     }
 
-
-
-// get computer's choice
 function getComputerChoice() {
     //generate random number between 1 and 3
     randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -54,8 +58,6 @@ function getComputerChoice() {
     }
 }
 
-
-// play one round
 function playRound(playerSelection, computerSelection) {
     // get player's choice and console.log
     //playerSelection = getPlayerChoice();
@@ -73,10 +75,12 @@ function playRound(playerSelection, computerSelection) {
         }
         else if(computerSelection == "Paper") {
             console.log("Winner: Comp");
+            comp++;
             return "Comp";
         }
         else if(computerSelection == "Scissors") {
             console.log("Winner: Player");
+            player++;
             return "Player";
         }
     }
@@ -88,10 +92,12 @@ function playRound(playerSelection, computerSelection) {
         }
         else if(computerSelection == "Scissors") {
             console.log("Winner: Comp");
+            comp++;
             return "Comp";
         }
         else if(computerSelection == "Rock") {
             console.log("Winner: Player");
+            player++;
             return "Player";
         }
     }
@@ -99,6 +105,7 @@ function playRound(playerSelection, computerSelection) {
     else if(playerSelection == "scissors") {
         if(computerSelection == "Paper") {
             console.log("Winner: Player");
+            player++;
             return "Player";
         }
         else if(computerSelection == "Scissors") {
@@ -107,38 +114,21 @@ function playRound(playerSelection, computerSelection) {
         }
         else if(computerSelection == "Rock") {
             console.log("Winner: Comp");
+            comp++;
             return "Comp";
         }
     }
 }
 
 
-// play five round game
-function game() {
-    //set loop variable
-    i = 1;
-    while(i < 6) {
-        // play one round 
-        roundWinner = playRound();
-        console.log(`Round ${i} winner: ` + roundWinner);
-        if(roundWinner == "Player") {
-            player++;
-            i++;
-        }
-        else if(roundWinner == "Comp") {
-            comp++;
-            i++;
-        }
-    // if tie loop doesn't advance
-    }
-    // return winner decided by variable
-    if(player > comp) {
-        return "Player";
-    }
-    else if(player < comp) {
-        return "Comp";
-    }
-
+function score() {
+    // update player and comp scores in the dom
+    
+    // if either score = 5 
+        // display winner in the dom
+        // dislay play again button
+            //button resets scores to zero
+    // 
 }
 
 
