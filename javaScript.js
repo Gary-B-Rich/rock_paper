@@ -3,6 +3,7 @@
 let computerSelection;
 let playerSelection;
 let roundWinner = "";
+let roundWinnerText = "";
 let winner = "";
 let comp = 0;
 let player = 0;
@@ -61,7 +62,6 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     // get player's choice and console.log
-    //playerSelection = getPlayerChoice();
     console.log("Player: " + playerSelection);
 
     // get computers choice and console.log
@@ -133,7 +133,16 @@ function score() {
     console.log("comp variable: " + comp);
 
     // update player and comp scores in the dom
-    
+    // player selection
+    // computer selection
+    // round winner
+    // player score:
+    let playerScoreText = document.getElementById('playerScoreText');
+    playerScoreText.textContent = ("Player score: " + player);
+    // comp score:
+    let compScoreText = document.getElementById('compScoreText');
+    compScoreText.textContent = ("Comp score: " + comp);
+
     // if either score = 5 
         // display winner in the dom
         // dislay play again button instead of choice buttons
