@@ -19,8 +19,9 @@ let scissors = document.getElementById('scissors');
 scissors.addEventListener("click", scissorsClicked);
 
 
-//  DEFINE ALL FUNCTIONS
+// ***************************END OF MAIN
 
+//  DEFINE ALL FUNCTIONS
 function rockClicked() {
     //console.log("Rock was clicked");
     playerSelection = "rock";
@@ -122,6 +123,15 @@ function playRound(playerSelection, computerSelection) {
 
 
 function score() {
+    // update player and comp scores in the variables
+    if (roundWinner == "Player") {
+        player++;
+    } else if (roundWinner == "Comp") {
+        comp++;
+    }
+    console.log("player variable: " + player);
+    console.log("comp variable: " + comp);
+
     // update player and comp scores in the dom
     
     // if either score = 5 
