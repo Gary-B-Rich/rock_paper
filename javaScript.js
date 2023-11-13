@@ -143,13 +143,18 @@ function score() {
     let compScoreText = document.getElementById('compScoreText');
     compScoreText.textContent = ("Comp score: " + comp);
 
-    // if either score = 5 
+    if(player == 5) {
+        
+        let playerScoreText = document.getElementById('playerScoreText');
+        playerScoreText.textContent = ("Player score: " + player);
+        alert("Player wins!");
+    } 
         // display winner in the dom
         // dislay play again button instead of choice buttons
             //button resets scores to zero
             //button changes reset button back to choice buttons
             //button removes winner display from dom
     // 
-}
+}   
 
 
