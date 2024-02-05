@@ -20,28 +20,28 @@ text.innerText = `Make your selection\n\nFirst to score 5 wins the game`;
 
 // define functions
 function chooseRock() {
-    //console.log("Rock");
     text.innerText = "You selected: Rock";
     player = 1;
     playRound();
 }
 
 function choosePaper() {
-    //console.log("Paper");
     text.innerText = "You selected: Paper";
     player = 2;
     playRound();
 }
 
 function chooseScissors() {
-    //console.log("Scissors");
     text.innerText = "You selected: Scissors";
     player = 3;
     playRound();
 }
 
 function endGame() {
-    console.log("WINNER OF THE GAME");
+    scoreText.innerText += "\n\nWE HAVE A WINNER!";
+    button1.innerText="Replay";
+    button2.innerText="Replay";
+    button3.innerText="Replay";
 }
 
 function checkWinner() {
@@ -50,20 +50,20 @@ function checkWinner() {
     }
 }
 function tie() {
-    resultsText.innerText = "Results: TIE";
+    resultsText.innerText = "Results: YOU TIE";
     scoreText.innerText=`Score:\nPlayer: ${playerScore}\nComputer: ${compScore}`;
     checkWinner();
 }
 
 function lose() {
-    resultsText.innerText = "Results: LOSE";
+    resultsText.innerText = "Results: YOU LOSE";
     compScore++;
     scoreText.innerText=`Score:\nPlayer: ${playerScore}\nComputer: ${compScore}`;
     checkWinner();
 }
 
 function win() {
-    resultsText.innerText = "Results: WIN";
+    resultsText.innerText = "Results: YOU WIN";
     playerScore++;
     scoreText.innerText=`Score:\nPlayer: ${playerScore}\nComputer: ${compScore}`;
     checkWinner();
