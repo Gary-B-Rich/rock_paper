@@ -16,6 +16,7 @@ let compScore=0;
 button1.onclick = chooseRock;
 button2.onclick = choosePaper;
 button3.onclick = chooseScissors;
+text.innerText = `Make your selection\n\nFirst to score 5 wins the game`;
 
 // define functions
 function chooseRock() {
