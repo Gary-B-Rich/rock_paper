@@ -13,13 +13,16 @@ button3.onclick = chooseScissors;
 
 // define functions
 function chooseRock() {
-
+    console.log("Rock");
+    text.innerText = "Rock has been selected.";
 }
 
 function choosePaper() {
-
+    console.log("Paper");
+    text.innerText = "Paper has been selected.";
 }
 
 function chooseScissors() {
-
+    console.log("Scissors");
+    text.innerText = "Scissors has been selected.";
 }
