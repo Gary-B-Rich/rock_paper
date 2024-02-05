@@ -13,16 +13,37 @@ button3.onclick = chooseScissors;
 
 // define functions
 function chooseRock() {
-    console.log("Rock");
-    text.innerText = "Rock has been selected.";
+    //console.log("Rock");
+    text.innerText = "You selected: Rock";
+    playRound();
 }
 
 function choosePaper() {
-    console.log("Paper");
-    text.innerText = "Paper has been selected.";
+    //console.log("Paper");
+    text.innerText = "You selected: Paper";
+    playRound();
 }
 
 function chooseScissors() {
-    console.log("Scissors");
-    text.innerText = "Scissors has been selected.";
+    //console.log("Scissors");
+    text.innerText = "You selected: Scissors";
+    playRound();
+}
+
+function playRound() {
+    //generate random number between 1 and 3
+    let randomNumber = Math.floor(Math.random() * 3) + 1;
+    console.log(randomNumber);
+    if(randomNumber ==1) {
+        compText.innerText = "Computer selects: Rock";
+        console.log("Rock");
+    }
+    if(randomNumber ==2) {
+        compText.innerText = "Computer selects: Paper";
+        console.log("Paper");
+    }
+    if(randomNumber ==3) {
+        compText.innerText = "Computer selects: Scissors";
+        console.log("Scissors");
+    }
 }
