@@ -37,15 +37,15 @@ function chooseScissors() {
 }
 
 function tie() {
-    alert("TIE");
+    resultsText.innerText = "Results: TIE";
 }
 
 function lose() {
-    alert("LOSE");
+    resultsText.innerText = "Results: LOSE";
 }
 
 function win() {
-    alert("WIN");
+    resultsText.innerText = "Results: WIN";
 }
 
 function playRound() {
