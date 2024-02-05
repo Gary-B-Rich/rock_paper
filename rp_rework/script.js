@@ -7,7 +7,10 @@ const button3 = document.querySelector("#button3");
 const text = document.querySelector("#text");
 const compText = document.querySelector("#compText");
 const resultsText = document.querySelector("#resultsText");
+const scoreText = document.querySelector("#scoreText");
 let player;
+let playerScore=0;
+let compScore=0;
 
 // initialize buttons
 button1.onclick = chooseRock;
@@ -36,16 +39,33 @@ function chooseScissors() {
     playRound();
 }
 
+function endGame() {
+    console.log("WINNER OF THE GAME");
+}
+
+function checkWinner() {
+    if(playerScore==5 || compScore==5) {
+        endGame();
+    }
+}
 function tie() {
     resultsText.innerText = "Results: TIE";
+    scoreText.innerText=`Score:\nPlayer: ${playerScore}\nComputer: ${compScore}`;
+    checkWinner();
 }
 
 function lose() {
     resultsText.innerText = "Results: LOSE";
+    compScore++;
+    scoreText.innerText=`Score:\nPlayer: ${playerScore}\nComputer: ${compScore}`;
+    checkWinner();
 }
 
 function win() {
     resultsText.innerText = "Results: WIN";
+    playerScore++;
+    scoreText.innerText=`Score:\nPlayer: ${playerScore}\nComputer: ${compScore}`;
+    checkWinner();
 }
 
 function playRound() {
@@ -55,15 +75,12 @@ function playRound() {
     //update dom for computer's selection
     if(randomNumber ==1) {
         compText.innerText = "Computer selects: Rock";
-        //console.log("Rock");
     }
     if(randomNumber ==2) {
         compText.innerText = "Computer selects: Paper";
-        //console.log("Paper");
     }
     if(randomNumber ==3) {
         compText.innerText = "Computer selects: Scissors";
-        //console.log("Scissors");
     }
     //compare winner of round
     console.log("Player variable: " + player);
